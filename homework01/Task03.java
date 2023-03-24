@@ -5,7 +5,7 @@ import java.util.Scanner;
 // Ввод знака ->
 // Ввод числа ->
 
-public class ThirdTask {
+public class Task03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

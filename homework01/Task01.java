@@ -5,7 +5,7 @@ import java.util.Scanner;
 // Треугольное число 1 + 2 + 3 + 4 + 5 = 15
 // n! 1 * 2 * 3 * 4 * 5 = 120
 
-public class FirstTask {
+public class Task01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter an integer: ");
@@ -18,17 +18,19 @@ public class FirstTask {
 
     static int triangularNumber(int number) {
         int result = 0;
-        for (int i = 1; i <= number; i++) result += i;
+        for (int i = 1; i <= number; i++)
+            result += i;
         return result;
     }
 
     static int factorial(int number) {
-        if (number == 0 || number == 1) return 1;
+        if (number == 0 || number == 1)
+            return 1;
         int result = 1;
-            
-        for (int i = 2; i <= number; i++) result *= i;
+
+        for (int i = 2; i <= number; i++)
+            result *= i;
         return result;
-            
+
     }
 }
- 
