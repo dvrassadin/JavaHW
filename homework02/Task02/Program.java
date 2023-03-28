@@ -2,10 +2,7 @@ package homework02.Task02;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 // Дана строка (получение через обычный текстовый файл!!!)
