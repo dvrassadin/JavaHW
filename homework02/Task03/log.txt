@@ -1,0 +1,6 @@
+Mar 28, 2023 10:21:43 PM homework02.Task03.Program main
+INFO: 20.000000 + 1.000000 = 21.000000
+Mar 28, 2023 10:30:42 PM homework02.Task03.Program main
+INFO: 40.000000 / 3.000000 = 13.333333
+Mar 28, 2023 10:31:30 PM homework02.Task03.Program main
+INFO: 2.000000 * 1.500000 = 3.000000
