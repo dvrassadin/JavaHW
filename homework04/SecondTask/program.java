@@ -5,7 +5,7 @@ package homework04.SecondTask;
 // dequeue() - возвращает первый элемент из очереди и удаляет его,
 // first() - возвращает первый элемент из очереди, не удаляя.
 
-public class program {
+public class Program {
 
     public static void main(String[] args) {
         MyQueue queue = new MyQueue();
