@@ -22,25 +22,33 @@ public class ThirdTask {
         boolean isSolved = false;
         while (!isSolved) {
             chessBoard = new boolean[size][size];
+            // Создание доски для добавления исключений
             boolean[][] exceptions = new boolean[size][size];
             Random random = new Random();
+            // Переменная для подсчёта поставленных на доску ферзей
             byte queens = 0;
 
-            for (byte i = 0; i < exceptions[0].length; i++) {
+            // Попытка добавления ферзя в каждый ряд пока не получится добавить восемь штук
+            for (byte i = 0; i < size; i++) {
+                // Множество для добавления индекса ячейки куда не получилось поставить ферзя
                 Set<Integer> cells = new HashSet<>();
-                while (cells.size() < exceptions[0].length) {
-                    int cell = random.nextInt(exceptions[0].length);
+                while (cells.size() < size) {
+                    int cell = random.nextInt(size);
+                    // Если получилось добавить ферзя, то доске с исключениями отмечаются ячейки
+                    // куда нельзя будет поставить следующих и увеличивается счётчик ферзей
                     if (!exceptions[i][cell]) {
                         chessBoard[i][cell] = true;
                         queens++;
-                        for (byte j = 0; j < chessBoard.length; j++) {
-                            exceptions[i][j] = true;
+                        // Исключения по вертикали
+                        for (byte j = 0; j < size; j++) {
                             exceptions[j][cell] = true;
                         }
-                        for (int k = 1; k < chessBoard.length - i && k <= cell; k++) {
+                        // Исключения по диагонали вправо
+                        for (byte k = 1; k < size - i && k <= cell; k++) {
                             exceptions[i + k][cell - k] = true;
                         }
-                        for (int l = 1; l < chessBoard.length - i && l < chessBoard.length - cell; l++) {
+                        // Исключения по диагонали влево
+                        for (byte l = 1; l < size - i && l < size - cell; l++) {
                             exceptions[i + l][cell + l] = true;
                         }
                         break;
@@ -48,7 +56,7 @@ public class ThirdTask {
                         cells.add(cell);
                 }
             }
-            if (queens == chessBoard.length)
+            if (queens == size)
                 isSolved = true;
         }
     }
