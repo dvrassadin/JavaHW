@@ -22,12 +22,13 @@ public class ThirdTask {
     static void arrangeQueens() {
         if (size < 4)
             return;
+
         boolean isSolved = false;
+        Random random = new Random();
         while (!isSolved) {
             chessBoard = new boolean[size][size];
             // Создание доски для добавления исключений
             boolean[][] exceptions = new boolean[size][size];
-            Random random = new Random();
             // Переменная для подсчёта поставленных на доску ферзей
             byte queens = 0;
 
@@ -47,12 +48,12 @@ public class ThirdTask {
                             exceptions[j][cell] = true;
                         }
                         // Исключения по диагонали вправо
-                        for (byte k = 1; k < size - i && k <= cell; k++) {
-                            exceptions[i + k][cell - k] = true;
+                        for (byte j = 1; j < size - i && j <= cell; j++) {
+                            exceptions[i + j][cell - j] = true;
                         }
                         // Исключения по диагонали влево
-                        for (byte l = 1; l < size - i && l < size - cell; l++) {
-                            exceptions[i + l][cell + l] = true;
+                        for (byte j = 1; j < size - i && j < size - cell; j++) {
+                            exceptions[i + j][cell + j] = true;
                         }
                         break;
                     } else
@@ -68,9 +69,8 @@ public class ThirdTask {
         System.out.println("Queens are ⬛️:");
 
         for (byte i = 0; i < size; i++) {
-            for (byte j = 0; j < size; j++) {
+            for (byte j = 0; j < size; j++)
                 System.out.print(chessBoard[i][j] ? "⬛️" : "⬜️");
-            }
             System.out.println();
         }
     }
