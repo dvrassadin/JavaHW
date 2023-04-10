@@ -1,8 +1,8 @@
 package homework05;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -64,13 +64,13 @@ public class SecondTask {
 
         // Создание сортированного в обратном порядке массива количества имён
         Integer[] sortedValues = names.values().toArray(new Integer[names.size()]);
-        Arrays.sort(sortedValues, Collections.reverseOrder());
+        Arrays.sort(sortedValues, Comparator.reverseOrder());
 
         // Проход по массиву с количествами имён
         for (int i = 0; i < sortedValues.length; i++) {
             // Создание итератора с оставшимися в словаре именами
             Iterator<String> iterator = names.keySet().iterator();
-            // Сравнение имени с количеством, печать и удаление имени из словаря.
+            // Сравнение имени с количеством, печать и удаление имени из словаря
             while (iterator.hasNext()) {
                 String name = iterator.next();
                 if (names.get(name) == sortedValues[i]) {
