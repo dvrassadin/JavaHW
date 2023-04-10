@@ -10,6 +10,7 @@ import java.util.Set;
 // 00x00000
 
 public class ThirdTask {
+    // Можно указать другой размер
     public static byte size = 8;
     static boolean[][] chessBoard = new boolean[size][size];
 
@@ -19,6 +20,8 @@ public class ThirdTask {
     }
 
     static void arrangeQueens() {
+        if (size < 4)
+            return;
         boolean isSolved = false;
         while (!isSolved) {
             chessBoard = new boolean[size][size];
@@ -40,7 +43,7 @@ public class ThirdTask {
                         chessBoard[i][cell] = true;
                         queens++;
                         // Исключения по вертикали
-                        for (byte j = 1; j < size; j++) {
+                        for (byte j = i; j < size; j++) {
                             exceptions[j][cell] = true;
                         }
                         // Исключения по диагонали вправо
