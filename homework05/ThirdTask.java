@@ -69,10 +69,7 @@ public class ThirdTask {
 
         for (byte i = 0; i < size; i++) {
             for (byte j = 0; j < size; j++) {
-                if (chessBoard[i][j])
-                    System.out.print("⬛️");
-                else
-                    System.out.print("⬜️");
+                System.out.print(chessBoard[i][j] ? "⬛️" : "⬜️");
             }
             System.out.println();
         }
