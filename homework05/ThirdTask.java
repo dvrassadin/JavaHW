@@ -10,7 +10,7 @@ import java.util.Set;
 // 00x00000
 
 public class ThirdTask {
-    public static int size = 8;
+    public static byte size = 8;
     static boolean[][] chessBoard = new boolean[size][size];
 
     public static void main(String[] args) {
@@ -40,7 +40,7 @@ public class ThirdTask {
                         chessBoard[i][cell] = true;
                         queens++;
                         // Исключения по вертикали
-                        for (byte j = 0; j < size; j++) {
+                        for (byte j = 1; j < size; j++) {
                             exceptions[j][cell] = true;
                         }
                         // Исключения по диагонали вправо
@@ -64,8 +64,8 @@ public class ThirdTask {
     static void printChessBoard() {
         System.out.println("Queens are ⬛️:");
 
-        for (int i = 0; i < chessBoard.length; i++) {
-            for (int j = 0; j < chessBoard.length; j++) {
+        for (byte i = 0; i < size; i++) {
+            for (byte j = 0; j < size; j++) {
                 if (chessBoard[i][j])
                     System.out.print("⬛️");
                 else
