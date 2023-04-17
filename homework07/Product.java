@@ -13,6 +13,7 @@ public class Product {
     String param2;
     boolean param3;
     String param4;
+    public BottleOfMilk volume;
 
     public double getPrice() {
         return price;
@@ -43,7 +44,6 @@ public class Product {
     }
 
     {
-        System.out.println("Initializer");
         param1 = 100;
         param2 = "...";
         param3 = true;
@@ -64,7 +64,6 @@ public class Product {
     }
 
     public Product(String brand, String name, double price) {
-        System.out.println("Constructor");
         if (brand.length() < 3)
             this.brand = "Noname";
         else
