@@ -9,6 +9,10 @@ public class BottleOfMilk extends Product {
         return volume;
     }
 
+    public int getFat() {
+        return this.fat;
+    }
+
     public BottleOfMilk(String name, double price, int volume, int fat) {
         super(name, price);
         this.volume = volume;
