@@ -25,16 +25,17 @@ public class Main {
 
         // Сравниваем вес
         System.out.println("Сравнение веса:");
-        System.out.printf("Коробки равны по весу: %s\n", appleBox1.compareWeight(orangeBox1));
-        System.out.printf("Коробки равны по весу: %s\n", appleBox1.compareWeight(appleBox2));
+        System.out.printf("Коробки равны по весу: %s.\n", appleBox1.compareWeight(orangeBox1));
+        System.out.printf("Коробки равны по весу: %s.\n", appleBox1.compareWeight(appleBox2));
 
         // Убираем фрукт из коробки апельсинов
         orangeBox1.removeFruit();
-        System.out.printf("Коробка апельсинов теперь весит %.2f\n", orangeBox1.getWeight());
+        System.out.printf("Коробка апельсинов теперь весит %.2f.\n", orangeBox1.getWeight());
 
         // Пересыпем яблоки из второй коробки в первую
         appleBox2.putAllFruitIn(appleBox1);
-        System.out.printf("Первая коробка теперь весит: %.2f\n", appleBox1.getWeight());
+        System.out.printf("Первая коробка теперь весит: %.2f, а вторая %.2f.\n", appleBox1.getWeight(),
+                appleBox2.getWeight());
 
     }
 }
