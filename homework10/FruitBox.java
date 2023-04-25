@@ -38,8 +38,8 @@ public class FruitBox<T extends Fruit> {
     }
 
     /**
+     * @param anotherBox любая {@code FruitBox} для сравнения
      * 
-     * @param box любая {@code FruitBox}
      * @return {@code true} если у коробок одинаковый вес
      */
     public boolean compareWeight(FruitBox<?> anotherBox) {
