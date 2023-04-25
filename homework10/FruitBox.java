@@ -43,7 +43,7 @@ public class FruitBox<T extends Fruit> {
      * @return {@code true} если у коробок одинаковый вес
      */
     public boolean compareWeight(FruitBox<?> anotherBox) {
-        return anotherBox.getWeight() == this.getWeight() ? true : false;
+        return anotherBox.getWeight() == this.getWeight();
     }
 
     /**
