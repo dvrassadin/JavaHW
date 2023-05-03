@@ -1,7 +1,6 @@
 package homework11.presenters;
 
 import homework11.models.Table;
-import homework11.models.TableModel;
 
 import java.util.Collection;
 import java.util.Date;
@@ -34,6 +33,10 @@ public class BookingPresenter implements ViewObserver {
         view.showTables(tables);
     }
 
+    public void updateReservationsView() {
+        this.view.showAllReservations(tables);
+    }
+
     /**
      * Отобразить результат бронирования столика
      * 
@@ -54,5 +57,16 @@ public class BookingPresenter implements ViewObserver {
     public void onReservationTable(Date orderDate, int tableNo, String name) {
         int reservationNo = model.reservationTable(orderDate, tableNo, name);
         updateReservationStatusView(reservationNo);
+    }
+
+    @Override
+    public void onChangeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
+        int newReservationNo = this.model.changeReservationTable(oldReservation, reservationDate, tableNo, name);
+        updateReservationStatusView(newReservationNo);
+    }
+
+    @Override
+    public void onRemoveReservation(int oldReservation) {
+        this.view.showRemovalResult(this.model.removeReservation(oldReservation));
     }
 }

@@ -5,6 +5,7 @@ import homework11.presenters.Model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 public class TableModel implements Model {
 
@@ -34,6 +35,18 @@ public class TableModel implements Model {
         // throw new RuntimeException("Некорректный номер столика");
     }
 
+    public boolean removeReservation(int oldReservation) {
+        for (Table table : this.tables) {
+            Iterator<Reservation> itr = table.getReservations().iterator();
+            while (itr.hasNext())
+                if (itr.next().getId() == oldReservation) {
+                    itr.remove();
+                    return true;
+                }
+        }
+        return false;
+    }
+
     /**
      * TODO: Разработать самостоятельно
      * Поменять бронь столика
@@ -44,7 +57,10 @@ public class TableModel implements Model {
      * @param name            Имя
      */
     public int changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
-        return -1;
+        if (this.removeReservation(oldReservation))
+            return this.reservationTable(reservationDate, tableNo, name);
+        else
+            return -1;
     }
 
 }

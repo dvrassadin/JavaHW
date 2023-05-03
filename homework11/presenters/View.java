@@ -1,7 +1,6 @@
 package homework11.presenters;
 
 import homework11.models.Table;
-
 import java.util.Collection;
 
 public interface View {
@@ -21,5 +20,21 @@ public interface View {
      * @param observer наблюдатель (презентер)
      */
     void setObserver(ViewObserver observer);
+
+    /**
+     * Отмена бронирования.
+     * 
+     * @param oldReservation номер бронирования для отмены
+     */
+    void removeReservation(int oldReservation);
+
+    void showRemovalResult(boolean result);
+
+    /**
+     * Отображает список всех бронирований.
+     * 
+     * @param tables список столиков
+     */
+    void showAllReservations(Collection<Table> tables);
 
 }
