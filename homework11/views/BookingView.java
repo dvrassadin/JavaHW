@@ -1,5 +1,6 @@
 package homework11.views;
 
+import homework11.models.Reservation;
 import homework11.models.Table;
 import homework11.presenters.View;
 import homework11.presenters.ViewObserver;
@@ -50,12 +51,12 @@ public class BookingView implements View {
      * Действие клиента (пользователь нажал на кнопку бронирования),
      * бронирование столика
      * 
-     * @param orderDate дата бронирования
-     * @param tableNo   номер столика
-     * @param name      имя клиента
+     * @param date    дата бронирования
+     * @param tableNo номер столика
+     * @param name    имя клиента
      */
-    public void reservationTable(Date orderDate, int tableNo, String name) {
-        observer.onReservationTable(orderDate, tableNo, name);
+    public void reservationTable(Date date, int tableNo, String name) {
+        observer.onReservationTable(date, tableNo, name);
     }
 
     /**
@@ -68,8 +69,27 @@ public class BookingView implements View {
      * @param name            Имя
      */
     public void changeReservationTable(int oldReservation, Date reservationDate, int tableNo, String name) {
-        // TODO: Обратиться к наблюдателю, указать на процедуру изменения бронирования
-        // столика
+        observer.onChangeReservationTable(oldReservation, reservationDate, tableNo, name);
+    }
+
+    @Override
+    public void removeReservation(int oldReservation) {
+        observer.onRemoveReservation(oldReservation);
+    }
+
+    @Override
+    public void showRemovalResult(boolean result) {
+        if (result)
+            System.out.println("Бронь была отменена.");
+        else
+            System.out.println("Бронь не найдена.");
+    }
+
+    @Override
+    public void showAllReservations(Collection<Table> tables) {
+        for (Table table : tables)
+            for (Reservation reservation : table.getReservations())
+                System.out.printf("%s, %s\n", table, reservation);
     }
 
 }
