@@ -2,7 +2,7 @@ package homework12.dip;
 
 import java.util.List;
 
-public class PrintReport {
+public class PrintReport implements ReportOutputter {
 
     public void output(List<ReportItem> items) {
         System.out.println("Output to printer");
