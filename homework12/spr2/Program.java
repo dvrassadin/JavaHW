@@ -7,7 +7,10 @@ public class Program {
         System.out.println("Введите заказ:");
         Order order = new Order("", "", 0, 0);
         order.inputFromConsole();
-        order.saveToJson();
+
+        SaveOrder.toJson(order);
+        SaveOrder.toXML(order);
+        SaveOrder.toXML(order, "theSameOrder");
     }
 
 }
