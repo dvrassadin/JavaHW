@@ -1,21 +1,29 @@
 package homework13;
 
-public class Master implements Observer {
-    private String name;
-    private double salary;
+public class Master extends Student {
 
     public Master(String name) {
-        this.name = name;
-        salary = 80000;
+        super(name);
+        this.salary = 80000;
     }
 
     @Override
-    public void receiveOffer(String companyName, double salary) {
-        if (this.salary < salary) {
-            System.out.printf("Мастер %s >>> Мне нужна эта работа! [%s - %f]\n", name, companyName, salary);
-            this.salary = salary;
+    public boolean receiveOffer(Vacancy vacancy) {
+        if (this.salary < vacancy.getSalary() && this.positions.contains(vacancy.getPosition())) {
+            System.out.printf("Мастер %s >>> Мне нужна эта работа! [%s - %s - %.2f]\n",
+                    this.name,
+                    vacancy.getCompanyName(),
+                    vacancy.getPosition().toString(),
+                    vacancy.getSalary());
+            this.salary = vacancy.getSalary();
+            return true;
         } else {
-            System.out.printf("Мастер %s >>> Я найду работу получше! [%s - %f]\n", name, companyName, salary);
+            System.out.printf("Мастер %s >>> Я найду работу получше! [%s - %s - %.2f]\n",
+                    this.name,
+                    vacancy.getCompanyName(),
+                    vacancy.getPosition().toString(),
+                    vacancy.getSalary());
+            return false;
         }
     }
 }
